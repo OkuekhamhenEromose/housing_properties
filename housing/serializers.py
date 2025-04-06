@@ -6,7 +6,7 @@ from rest_framework import serializers
 from . models import Profile
 from django.contrib.auth.models import User
 
-# from . utils import SendMail
+from . utils import SendMail
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -45,7 +45,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
             gender = validated_data['gender'],
             profile_pix = validated_data.get('profile_pix')
         )
-        # SendMail(email)
+        SendMail(email)
         return profile
     
 class UpdateProfileSerializer(serializers.ModelSerializer):

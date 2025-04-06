@@ -64,6 +64,7 @@ class DashboardView(APIView):
 
 # update
 class UpdateProfileView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self,request):
         try:
             profile = request.user.profile
