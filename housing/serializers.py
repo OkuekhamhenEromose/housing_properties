@@ -1,6 +1,3 @@
-
-
-
 # after installing djangorestframework and adding it in installed app of settings
 from rest_framework import serializers
 from . models import Profile

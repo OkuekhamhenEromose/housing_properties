@@ -9,7 +9,7 @@ CATEGORY_CHOICES =(
     ('sale', 'For Sale'),
     ('rent', 'For Rent')
 )
-
+# for each property, there can be multiple listings. this presents a property for market
 class Property(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -19,7 +19,7 @@ class Property(models.Model):
 
     def __str__(self):
         return self.title
-    
+  #  complete description of the property
 class Listing(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
