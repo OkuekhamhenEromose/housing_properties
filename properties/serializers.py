@@ -2,6 +2,7 @@
 from rest_framework import serializers
 from .models import *
 
+# Serializers for the models in properties app
 class PropertySerializer(serializers.ModelSerializer):
     class Meta:
         model=Property

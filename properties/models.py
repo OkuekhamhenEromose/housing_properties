@@ -43,7 +43,8 @@ class Listing(models.Model):
         if not self.listing_id:
             self.listing_id = uuid.uuid4()
         super().save(*args, **kwargs)
-
+# This is the user listing, it contains the total of all listings a user has
+# and the profile of the user
 class UserListing(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True,blank=True)
     total = models.PositiveIntegerField()
@@ -51,7 +52,8 @@ class UserListing(models.Model):
     
     def __str__(self):
         return f'{str(self.total)}'
-
+# This is the single listing, it contains the listing and the quantity of that listing
+# in the user listing. It is used to calculate the total of the user listing
 class SingleListing(models.Model):
     userlisting = models.ForeignKey(UserListing, on_delete=models.CASCADE)
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
@@ -72,6 +74,7 @@ PAYMENT_METHOD=(
     ('paypal','paypal'),
     ('transfer','transfer')
 )
+
 class Order(models.Model):
     userlisting = models.ForeignKey(UserListing, on_delete=models.CASCADE)
     order_by = models.CharField(max_length=255)
