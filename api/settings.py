@@ -69,7 +69,18 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASE_URL = os.environ.get('DATABASEURL')
 if DATABASE_URL:
     DATABASES = {
-        'default': dj_database_url.parse(DATABASE_URL)
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'housingpropertiesdb_yefk',  # From Render dashboard
+            'USER': 'housingpropertiesdb_yefk_user',  # From Render dashboard
+            'PASSWORD': 'tNepaJVLfWK7UZQyv6LVZ6uJClwzBCzD',  # From Render dashboard
+            'HOST': 'dpg-d0f1ib3uibrs73bbe1sg-a.oregon-postgres.render.com',
+            'PORT': '5432',
+            'OPTIONS': {
+                'sslmode': 'require',
+                'sslrootcert': 'prod-ca-2021.crt',  # Important for Render
+            },
+        }
     }
 else:
     print("Using default SQLite database. DATABASEURL not set.")
