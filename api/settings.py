@@ -13,7 +13,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = ['https://real-estate-app-2hvr.onrender.com/', '127.0.0.1:8000', 'localhost']
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000']
+ALLOWED_HOSTS = [ 'https://housing-properties.onrender.com', 'localhost', '127.0.0.1:8000', ] #https://myresume-k78s.onrender.com
 
 INSTALLED_APPS = [
     'django.contrib.admin',
